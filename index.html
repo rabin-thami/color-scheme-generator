@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Basket Ball Score Counter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="colums">
+            <h1>team a</h1>
+            <div class="count-display">
+                <span class="score-display">
+                    <p id="leftScore">0</p>
+                </span>
+            </div>
+            <div class="score-add">
+                <button class="btn" onclick="add1Left()">+1</button>
+                <button class="btn" onclick="add2Left()">+2</button>
+                <button class="btn" onclick="add3Left()">+3</button>
+            </div>
+        </div>
+
+        <div class="colums">
+            <h1>last score</h1>
+            <div class="count-display" style="width: auto;">
+                <span class="score-display" id="savedScore">0 : 0</span>
+            </div>
+            <div class="score-add">
+                <button class="btn" style="width: 9rem;" onclick="saveAndReset()">Save & Reset</button>
+            </div>
+        </div>
+        
+        <div class="colums">
+            <h1>team b</h1>
+            <div class="count-display">
+                <span class="score-display">
+                    <p id="rightScore">0</p>
+                </span>
+            </div>
+            <div class="score-add">
+                <button class="btn" onclick="add1Right()">+1</button>
+                <button class="btn" onclick="add2Right()">+2</button>
+                <button class="btn" onclick="add3Right()">+3</button>
+            </div>
+        </div>
+    </div>
+    <footer><a href="https://github.com/rabin-thami">&copy;Rabin Thami</a></footer>
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
