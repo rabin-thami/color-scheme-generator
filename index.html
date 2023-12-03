@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Color Palette Generator</title>
 </head>
 <body>
-    <section class="form-section">
-        <form>
-            <input type="color" id="colorInput">
-            <select name="color-mod" id="colorMode">
-                <option value="monochrome">Monochrome</option>
-                <option value="monochrome-dark">Monochrome Dark</option>
-                <option value="monochrome-light">Monochrome Light</option>
-                <option value="analogic">Analogic</option>
-                <option value="complement">Complement</option>
-                <option value="analogic-complement">Analogic Complement</option>
-                <option value="triad">Triad</option>
-                <option value="quad">Quad</option>
-            </select>
-            <button type="submit">Get Color</button>
-        </form>
-    </section>
-    <section class="render-color" id="renderColorContainer">
-        <!-- <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p> -->
-    </section>
-    <script src="script.js"></script>
+    <main>
+        <section class="notification">
+            <p>Color #FFFFF copied to your clipboard</p>
+        </section>
+
+        <section class="color-palette">
+            <button>
+                <i class="fa-regular fa-copy"></i> 
+                <span>#FFFF</span>
+            </button>
+            <button>
+                <i class="fa-regular fa-copy"></i> 
+                <span>#FFFF</span>
+            </button>
+            <button>
+                <i class="fa-regular fa-copy"></i> 
+                <span>#FFFF</span>
+            </button>
+            <button>
+                <i class="fa-regular fa-copy"></i> 
+                <span>#FFFF</span>
+            </button>
+            <button>
+                <i class="fa-regular fa-copy"></i> 
+                <span>#FFFF</span>
+            </button>
+            <button>
+                <i class="fa-regular fa-copy"></i> 
+                <span>#FFFF</span>
+            </button>
+        </section>
+        <section class="form-section">
+           <form>
+            <input type="color" name="color">
+            <button type="submit">Generate Palette</button>
+           </form>
+        </section>
+    </main>
+    <script src="https://kit.fontawesome.com/c5d87dc3ba.js" crossorigin="anonymous"></script>
 </body>
 </html>
