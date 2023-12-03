@@ -1,45 +1,41 @@
-const getColorButton = document.querySelector("#getColor");
-let firstColor = document.querySelector("#first");
-let secondColor = document.querySelector("#second");
-let thirdColor = document.querySelector("#third");
-let forthColor = document.querySelector("#forth");
-let fifthColor = document.querySelector("#fifth");
+const form = document.querySelector("form")
+const colorEl = document.querySelector("#colorInput")
+const colorMode = document.querySelector("#colorMode")
+const renderColorContainer = document.querySelector("#renderColorContainer")
 
-getColorButton.addEventListener('click', () => {
-    const colorCode = document.querySelector("#colorCode").value.substring(1);
-    const colorMode = document.querySelector("#colorMode").value;
+form.addEventListener("submit", getColorSchema)
+
+function getColorSchema(e) {
+    e && e.preventDefault()
+
+    let cleanColorHax = colorEl.value.substring(1)
+    console.log(cleanColorHax);
+
+    fetch (`https://www.thecolorapi.com/scheme?hex=${cleanColorHax}&mode=${colorMode.value}&count=5`)
+        .then (res => res.json())
+        .then (data => {
+            // console.log(data)
+            renderColorContainer.innerHTML = ""
+            data.colors.forEach((color) => renderColors(color.hex.value))
+        })
+}
+
+getColorSchema()
+function renderColors(color) {
+    const btn = document.createElement("button")   
+    btn.style.background = color
+    btn.addEventListener("click", () => copyToClipboard(color))
     
-    // Corrected URL string with proper interpolation
-    const apiUrl = `https://www.thecolorapi.com/scheme?hex=${colorCode}&mode=${colorMode}&count=5`;
+    const p = document.createElement("p")
+    p.textContent = color
+    
+    btn.appendChild(p)
+    renderColorContainer.appendChild(btn)
 
-    fetch(apiUrl)
-        .then(res => res.json())
-        .then(data => {
-            let colorAry = data.colors;
+}
 
-            // Loop through colors and set background colors to corresponding elements
-            for (let i = 0; i < colorAry.length && i < 5; i++) {
-                const colorValue = colorAry[i].hex.value;
 
-                // Set background color based on index
-                switch (i) {
-                    case 0:
-                        firstColor.style.backgroundColor = colorValue;
-                        break;
-                    case 1:
-                        secondColor.style.backgroundColor = colorValue;
-                        break;
-                    case 2:
-                        thirdColor.style.backgroundColor = colorValue;
-                        break;
-                    case 3:
-                        forthColor.style.backgroundColor = colorValue;
-                        break;
-                    case 4:
-                        fifthColor.style.backgroundColor = colorValue;
-                        break;
-                    // Additional cases if you have more colors or elements
-                }
-            }
-        });
-});
+function copyToClipboard(color) {    
+    navigator.clipboard.writeText(color) // only work with https otherwise throws error
+    alert(`Yay!🥳 copied the color: ${color}`)
+}
