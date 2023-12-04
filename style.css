@@ -25,7 +25,14 @@ main {
     border-radius: 50px;
     text-align: center;
     font-size: 0.9rem;
+    visibility: hidden;
 }
+
+
+.notification.visible {
+    visibility: visible;
+}
+
 
 
 /*title-section*/
